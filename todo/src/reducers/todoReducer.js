@@ -14,12 +14,12 @@ export const reducer = (state, action) => {
     switch(action.type) {
     case "NEW_TODO_ADDED": 
         return {
-            ...state,
-            stateArray: state.stateArray.push({
+            // ...state,
+            stateArray: [...state.stateArray, {
                 item: action.payload, 
                 completed:false,
                 id: Date.now() 
-            })
+            }]
         };
       case 'COMPLETED_TOGGLED' :
           return {

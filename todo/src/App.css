@@ -37,7 +37,17 @@
   }
 }
 .chore {
-  border: 2px black solid;
+  border: 2px white solid;
   background-color: black;
   color: white;
+  padding:2%;
+  margin:1%;
+}
+.chorecompleted {
+  border: 2px black solid;
+  background-color: white;
+  color: black;
+  text-decoration: line-through;
+  padding:2%;
+  margin:1%;
 }

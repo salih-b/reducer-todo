@@ -18,6 +18,15 @@ const addTodo = (e) =>{
 dispatch({type: "NEW_TODO_ADDED", payload: newTodoText});
 }
 
+const toggleCompleted = (todoId) =>{
+  dispatch({type: "COMPLETED_TOGGLED", payload: todoId});
+}
+
+const clearCompleted = (e)=>{
+  e.preventDefault();
+  dispatch({type: "CLEAR_COMPLETED"});
+}
+
   return (
     <div className="App">
       <header className="App-header">
@@ -32,12 +41,15 @@ dispatch({type: "NEW_TODO_ADDED", payload: newTodoText});
             onChange={handleChanges}
             />
             <button onClick={addTodo}>Add To-Do</button>
-            <button>Clear Completed</button>
+            <button onClick={clearCompleted} >Clear Completed</button>
           </form>
         </div>
         <div>
           {state.stateArray.map(todo => (
-            <div className="chore">
+            <div 
+        onClick={()=> toggleCompleted(todo.id)}
+        className={`chore${todo.completed ? 'completed' : ''}`}
+        >
             <h2>{todo.item}</h2>
           </div>
           ))}
